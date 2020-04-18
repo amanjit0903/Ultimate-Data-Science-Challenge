@@ -1,17 +1,17 @@
 /*IMPORTING TRANSPOSED 2013 STORE METRICS DATA*/
-PROC IMPORT DATAFILE='C:\Users\sxm180029\Desktop\DSC\SM13_upd.xlsx' OUT =SM13 DBMS=xlsx replace;                             
+PROC IMPORT DATAFILE='C:\Users\axs180034\Desktop\DSC\SM13_upd.xlsx' OUT =SM13 DBMS=xlsx replace;                             
 RUN;                                                                                                                                    
                                                                                                                                         
  /*IMPORTING TRANSPOSED 2014 DATA*/                                                                                                                                                                                                                                                                                                                                                                                            
-PROC IMPORT DATAFILE='C:\Users\sxm180029\Desktop\DSC\SM14_upd.xlsx' OUT =SM14 DBMS=xlsx replace;                          
+PROC IMPORT DATAFILE='C:\Users\axs180034\Desktop\DSC\SM14_upd.xlsx' OUT =SM14 DBMS=xlsx replace;                          
 RUN;        
 
 /*IMPORTING STORE CHARACTERISTICS DATA*/                                                                                                                                     
-PROC IMPORT DATAFILE='C:\Users\sxm180029\Desktop\DSC\Store_charateristics_vf_UP.csv' OUT =SC DBMS=CSV replace;                          
+PROC IMPORT DATAFILE='C:\Users\axs180034\Desktop\DSC\Store_charateristics_vf_UP.csv' OUT =SC DBMS=CSV replace;                          
 RUN; 
   
 /*IMPORTING FOOTTRAFFIC DATA*/                                                                                                                                        
-PROC IMPORT DATAFILE='C:\Users\sxm180029\Desktop\DSC\Store_footTraffic_upd.csv' OUT =SFT DBMS=CSV replace; 
+PROC IMPORT DATAFILE='C:\Users\axs180034\Desktop\DSC\Store_footTraffic_upd.csv' OUT =SFT DBMS=CSV replace; 
 RUN;  
 
 /*MERGING STORE METRICS, CHARACTERISTICS AND FOOTTRAFFIC DATA*/
@@ -41,13 +41,13 @@ run;
 
 /* EXPORTING DATA TO CSV AND USED PYTHON TO IMPUTE MISSING VALUES FOR STORE METRIC VARIABLES*/
 proc export data=SSF
-   outfile='C:\Users\sxm180029\Desktop\DSC\SSF_logistic.csv'
+   outfile='C:\Users\axs180034\Desktop\DSC\SSF_logistic.csv'
    dbms=csv
    replace;
 run;
 
 /*IMPORTING MERGED DATA WITH IMPUTED VALUES FOR MISSING STORE METRICS*/
-PROC IMPORT DATAFILE='C:\Users\sxm180029\Desktop\DSC\SSF_logisticup.csv' OUT =SSF_logs DBMS=CSV replace;                          
+PROC IMPORT DATAFILE='C:\Users\axs180034\Desktop\DSC\SSF_logisticup.csv' OUT =SSF_logs DBMS=CSV replace;                          
 RUN; 
 
 /* CREATING DUMMY AND BINARY VARIABLES*/
@@ -78,7 +78,7 @@ if Monthly_Parts___Supplies_MTD___t=. then PnS=.;
 run;
 
 /*IMPORTING ZIP DEMOGRAPHICS*/
-PROC IMPORT DATAFILE='C:\Users\sxm180029\Desktop\DSC\ZIP_LND_WTR.csv' OUT =Zip_LW DBMS=CSV replace;                          
+PROC IMPORT DATAFILE='C:\Users\axs180034\Desktop\DSC\ZIP_LND_WTR.csv' OUT =Zip_LW DBMS=CSV replace;                          
 RUN; 
 
 /* MERGING DATA WITH ZIP DEMOGRAPHICS*/
